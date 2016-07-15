@@ -29,7 +29,7 @@ module SpreeZoneByZipCode
       end
 
       def add_seed_data
-        add_seed_data = options[:add_seed_data] || ['', 'y', 'Y'].include?(ask 'Would you like to add sample zip codes to you seeds.rb file?')
+        add_seed_data = options[:add_seed_data] || ['', 'y', 'Y'].include?(ask 'Would you like to add sample zip codes to you seeds.rb file? [Y/n]')
         if add_seed_data
           append_file 'db/seeds.rb', <<-RUBY
 
@@ -76,7 +76,7 @@ end
       end
 
       def run_seeds
-        populate_sample_data = options[:auto_run_seed_data] || ['', 'y', 'Y'].include?(ask 'Would you like to run seeds.rb?')
+        populate_sample_data = options[:auto_run_seed_data] || ['', 'y', 'Y'].include?(ask 'Would you like to run seeds.rb? [Y/n]')
         if populate_sample_data
           run 'bundle exec rake db:seed'
         else
