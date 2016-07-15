@@ -8,7 +8,7 @@ ZIP_CODES = { 'Florida' => [ 33010, 33012, 33013, 33014, 33015, 33016, 33018, 33
 ZIP_CODES.each do |state, zip_codes|
   state = Spree::State.where(name: state).first
   zip_codes.each do |zip_code|
-    ZipCode.create!(state_id: state.id, value: zip_code.to_s)
+    Spree::ZipCode.create!(state_id: state.id, value: zip_code.to_s)
   end
 end
 
