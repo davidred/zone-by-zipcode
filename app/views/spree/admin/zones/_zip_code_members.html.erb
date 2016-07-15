@@ -1,0 +1,16 @@
+<div id="zip_code_members" data-hook="member">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-title">
+        <%= Spree.t(:zip_codes) %>
+      </h1>
+    </div>
+
+    <div class="panel-body">
+      <%= zone_form.field_container :zip_code_ids, class: ['form-group'] do %>
+        <%= zone_form.label :zip_code_ids, Spree.t(:zip_codes) %>
+        <%= zone_form.collection_select :zip_code_ids, Spree::ZipCode.all, :id, :name, {}, { multiple: true, class: "select2" } %>
+      <% end %>
+    </div>
+  </div>
+</div>
